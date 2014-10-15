@@ -14,11 +14,15 @@ request('https://venmo.com/api/v5/public', function (error, response, body) {
         targetFacebookUrl;
 
     function getFacebookUrl(pictureUrl) {
-      if (pictureUrl.indexOf("facebook") >= 0) {
-        return "(https://www.facebook.com/"+pictureUrl.split("/")[3]+")";
+      if (pictureUrl !== undefined) {
+        if (pictureUrl.indexOf("facebook") >= 0) {
+          return "("+"https://www.facebook.com/".bold+pictureUrl.split("/")[3].bold+")";
+        } else {
+          return ""
+        };
       } else {
         return ""
-      };
+      }
     };
 
     console.log("#####################################################\n#####################################################".white.bold)
@@ -31,10 +35,10 @@ request('https://venmo.com/api/v5/public', function (error, response, body) {
       console.log("Payment ID: "+c.payment_id+"\n"+
                   "Story ID:   "+c.story_id+"\n"+
                   "Permalink:  https://www.venmo.com"+c.permalink+"\n"+
-                  "From ID:    "+c.actor.id.red+"\n"+
+                  "From ID:    "+c.actor.id+"\n"+
                   "From:       "+c.actor.username.red.bold+" "+actorFacebookUrl+"\n"+
-                  "To ID:      "+c.transactions[0].target.id.magenta+"\n"+
-                  "To:         "+c.transactions[0].target.username.magenta.bold+"\n"+
+                  "To ID:      "+c.transactions[0].target.id+"\n"+
+                  "To:         "+c.transactions[0].target.username.magenta.bold+" "+targetFacebookUrl+"\n"+
                   "Via:        "+c.via+"\n"+
                   "Type:       "+c.type+"\n"+
                   "Message:    "+c.message.green.bold+"\n");
