@@ -1,0 +1,17 @@
+{
+  "name": "venmo-is-public",
+  "version": "0.1.0",
+  "description": "An app that helps you find drug dealers on Venmo",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "dannyid",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.0.3",
+    "express": "^4.9.7",
+    "q": "^1.0.1",
+    "request": "^2.45.0"
+  }
+}
